@@ -14,6 +14,7 @@
 		3FB31EB62ADD5BBB00703EBE /* Memory_game_v2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB31EB52ADD5BBB00703EBE /* Memory_game_v2Tests.swift */; };
 		3FB31EC02ADD5BBC00703EBE /* Memory_game_v2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB31EBF2ADD5BBC00703EBE /* Memory_game_v2UITests.swift */; };
 		3FB31EC22ADD5BBC00703EBE /* Memory_game_v2UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB31EC12ADD5BBC00703EBE /* Memory_game_v2UITestsLaunchTests.swift */; };
+		3FB31ECF2ADD5C7B00703EBE /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB31ECE2ADD5C7B00703EBE /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		3FB31EBB2ADD5BBB00703EBE /* Memory_game_v2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Memory_game_v2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FB31EBF2ADD5BBC00703EBE /* Memory_game_v2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memory_game_v2UITests.swift; sourceTree = "<group>"; };
 		3FB31EC12ADD5BBC00703EBE /* Memory_game_v2UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memory_game_v2UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3FB31ECE2ADD5C7B00703EBE /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				3FB31EA62ADD5BBA00703EBE /* ContentView.swift */,
 				3FB31EA82ADD5BBB00703EBE /* Assets.xcassets */,
 				3FB31EAA2ADD5BBB00703EBE /* Preview Content */,
+				3FB31ECE2ADD5C7B00703EBE /* CardView.swift */,
 			);
 			path = Memory_game_v2;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FB31EA72ADD5BBA00703EBE /* ContentView.swift in Sources */,
+				3FB31ECF2ADD5C7B00703EBE /* CardView.swift in Sources */,
 				3FB31EA52ADD5BBA00703EBE /* Memory_game_v2App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -24,7 +24,7 @@ struct ContentView: View {
             ScrollView{
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 80))], content: {
                     ForEach(1 ... cardCounter, id: \.self){ item in
-                        CardView(emoji: emojis[emojiSelected][item])
+                        CardView(card: MemoGameModel<String>.Card(content:emojis[emojiSelected][item] ))
                     }
                 }).foregroundColor(themeColor)
             }

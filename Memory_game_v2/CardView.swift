@@ -8,27 +8,27 @@
 import SwiftUI
 
 struct CardView: View {
-    var cardContent: String = ""
-    @State var isShown: Bool = true
+    
+    @State var isFlipped: Bool = false
+    let emoji: String
     var body: some View {
         Group{
             ZStack{
-                Group{
+                if(isFlipped){
+                    RoundedRectangle(cornerRadius: 12).fill(.white)
+                    RoundedRectangle(cornerRadius: 12).strokeBorder(.blue, lineWidth: 5)
+                }else {
                     RoundedRectangle(cornerRadius: 12)
-                        .fill(.white)
-                    RoundedRectangle(cornerRadius: 12)
-                        .stroke(.blue, lineWidth: 2)
-                    Text(cardContent).font(.largeTitle)
-                }.opacity(isShown ? 1 : 0)
-                Group{
-                    RoundedRectangle(cornerRadius: 12)
-                        .fill(.blue)
-                }.opacity(isShown ? 0 : 1)
+                        
+                }
+                
+                Text(emoji).font(.largeTitle).opacity(isFlipped ? 1 : 0)
             }
-        }.onTapGesture {
-            isShown.toggle()
-        }.aspectRatio(1/1, contentMode: .fill)
-
-            
+        }
+        .onTapGesture {
+            isFlipped.toggle()
+        }.aspectRatio(2/3, contentMode: .fill)
+        
+        
     }
 }

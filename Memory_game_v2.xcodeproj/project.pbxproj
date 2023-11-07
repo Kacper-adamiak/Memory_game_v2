@@ -15,6 +15,9 @@
 		3FB31EC02ADD5BBC00703EBE /* Memory_game_v2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB31EBF2ADD5BBC00703EBE /* Memory_game_v2UITests.swift */; };
 		3FB31EC22ADD5BBC00703EBE /* Memory_game_v2UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB31EC12ADD5BBC00703EBE /* Memory_game_v2UITestsLaunchTests.swift */; };
 		3FB31ECF2ADD5C7B00703EBE /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB31ECE2ADD5C7B00703EBE /* CardView.swift */; };
+		3FBA3D832AFA195900A3E314 /* MemoGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA3D822AFA195900A3E314 /* MemoGameModel.swift */; };
+		3FBA3D852AFA209100A3E314 /* MemoGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA3D842AFA209100A3E314 /* MemoGameViewModel.swift */; };
+		3FBA3D872AFA24FE00A3E314 /* ThemeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA3D862AFA24FE00A3E314 /* ThemeButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,9 @@
 		3FB31EBF2ADD5BBC00703EBE /* Memory_game_v2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memory_game_v2UITests.swift; sourceTree = "<group>"; };
 		3FB31EC12ADD5BBC00703EBE /* Memory_game_v2UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memory_game_v2UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3FB31ECE2ADD5C7B00703EBE /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		3FBA3D822AFA195900A3E314 /* MemoGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoGameModel.swift; sourceTree = "<group>"; };
+		3FBA3D842AFA209100A3E314 /* MemoGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoGameViewModel.swift; sourceTree = "<group>"; };
+		3FBA3D862AFA24FE00A3E314 /* ThemeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +107,9 @@
 				3FB31EA82ADD5BBB00703EBE /* Assets.xcassets */,
 				3FB31EAA2ADD5BBB00703EBE /* Preview Content */,
 				3FB31ECE2ADD5C7B00703EBE /* CardView.swift */,
+				3FBA3D822AFA195900A3E314 /* MemoGameModel.swift */,
+				3FBA3D842AFA209100A3E314 /* MemoGameViewModel.swift */,
+				3FBA3D862AFA24FE00A3E314 /* ThemeButton.swift */,
 			);
 			path = Memory_game_v2;
 			sourceTree = "<group>";
@@ -263,6 +272,9 @@
 				3FB31EA72ADD5BBA00703EBE /* ContentView.swift in Sources */,
 				3FB31ECF2ADD5C7B00703EBE /* CardView.swift in Sources */,
 				3FB31EA52ADD5BBA00703EBE /* Memory_game_v2App.swift in Sources */,
+				3FBA3D852AFA209100A3E314 /* MemoGameViewModel.swift in Sources */,
+				3FBA3D832AFA195900A3E314 /* MemoGameModel.swift in Sources */,
+				3FBA3D872AFA24FE00A3E314 /* ThemeButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,50 +8,69 @@
 import SwiftUI
 
 struct ContentView: View {
-    let cardContents = ["😀","🦁","😇","😝","😀","🦁","😇","😝"]
-    @State var cardCount: Int = 2
+    
+    @State var emojis = [
+        ["🥹", "🥸", "🥶", "😱", "🫠","🤠", "😍", "🫡", "🤧", "😇", "🤩", "🥳", "😡"],
+        ["🐶", "🐱", "🐭", "🐹", "🐰","🦊", "🐻", "🐼", "🐻‍❄️", "🐨", "🐯", "🦁", "🐮"],
+        ["⚽️", "🏀", "🏈", "⚾️", "🥎","🏐", "🏉", "🥏", "🎱", "🪀", "🏓", "🏸", "🏒"]
+    ]
+    @State var emojiSelected: Int = 0
+        
+    @State var themeColor: Color = .blue
+    
+    @State var cardCounter: Int = 4
     var body: some View {
-        
-        cardDisplay
-        bottomButtons
-        
-    }
-    
-    var cardDisplay: some View {
-        ScrollView{
-            LazyVGrid(columns:  [GridItem(.adaptive(minimum: 120))]){
-                ForEach(0..<cardCount, id: \.self){
-                    index in
-                    CardView(cardContent: cardContents[index])
-                }
-            }.padding()
-                .foregroundColor(.blue)
+        VStack {
+            ScrollView{
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 80))], content: {
+                    ForEach(1 ... cardCounter, id: \.self){ item in
+                        CardView(emoji: emojis[emojiSelected][item])
+                    }
+                }).foregroundColor(themeColor)
+            }
+            
+//            navigation
+            themeBar
+            
         }
+        .padding()
     }
     
-    var bottomButtons: some View {
+//    var navigation: some View{
+//        HStack{
+//            adjustCardNumber(by: -2, symbol: "minus.square")
+//                .disabled(cardCounter <= 2 ? true : false)
+//
+//            Spacer()
+//
+//            adjustCardNumber(by: 2, symbol: "plus.app")
+//                .disabled(cardCounter + 2 >= emojis.count ? true : false)
+//        }
+//    }
+    
+    
+    var themeBar: some View{
         HStack{
+            ThemeButton(text: "Motyw 1", icon: "face.smiling", themeColor: $themeColor, themeInput: .blue, cardCountInput: 4, emojis: $emojis[emojiSelected], cardCount: $cardCounter, emojiSelected: $emojiSelected, emojiInput: 0)
+            
             Spacer()
-            adjustCardNumber(by: -2, symbol: "-")
+            
+            ThemeButton(text: "Motyw 2", icon: "shuffle.circle", themeColor: $themeColor, themeInput: .red, cardCountInput: 8, emojis: $emojis[emojiSelected], cardCount: $cardCounter, emojiSelected: $emojiSelected, emojiInput: 1)
+            
             Spacer()
-            adjustCardNumber(by: 2, symbol: "+")
-            Spacer()
+            
+            ThemeButton(text: "Motyw 3", icon: "pawprint.circle", themeColor: $themeColor, themeInput: .green, cardCountInput: 12, emojis: $emojis[emojiSelected], cardCount: $cardCounter, emojiSelected: $emojiSelected, emojiInput: 2)
         }
+        
     }
     
-    func adjustCardNumber(by offset: Int, symbol: String) -> some View {
-        var state: Bool = false
-        if(cardCount + offset < 2 || cardCount + offset > cardContents.count){
-            state.toggle()
-        }
-        return Button(symbol) {
-            cardCount = cardCount + offset
-        }.disabled(state)
-    }
+    
+    
+//    func adjustCardNumber(by offset: Int, symbol: String) -> some View {
+//        return Button(action: {cardCounter = cardCounter + offset}, label: {
+//            Image(systemName: symbol).resizable()
+//                .frame(width: 30, height: 30)
+//        })
+//    }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}

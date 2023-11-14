@@ -44,7 +44,7 @@ struct ContentView: View {
     var ThemeButtons: some View{
         HStack{
             Spacer()
-            ThemeButton(viewModel: viewModel, imageName: "face.smiling", content: "Motyw 1", themeType: 0)
+            ThemeButton(viewModel: viewModel, imageName: "face.smiling.fill", content: "Motyw 1", themeType: 0)
             Spacer()
             ThemeButton(viewModel: viewModel, imageName: "pawprint.circle.fill", content: "Motyw 2", themeType: 1)
             Spacer()

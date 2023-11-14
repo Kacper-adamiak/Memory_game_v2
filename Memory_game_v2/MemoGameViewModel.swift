@@ -10,14 +10,14 @@ import SwiftUI
 class MemoGameViewModel: ObservableObject {
     
     private static let emojis = [
-        ["🥹","🥸","🥶","😱","🫠","🤠","😍","🫡","🤧","😇"],
+        ["🥹","🥸","🥶","😱","🫠","🤠","😍","🫥","🤧","😇"],
         ["🐶","🐱","🐭","🐹","🐰","🦊","🐻","🐼","🐻‍❄️","🐨"],
         ["⚽️","🏀","🏈","⚾️","🎾","🏉","🥏","🎱","🏓","🏸"]
     ]
     @Published var themeType = 0
     var themeColor: Color {
         get {
-            return [Color.orange, Color.blue, Color.red][themeType]
+            return [Color.purple, Color.blue, Color.yellow][themeType]
         }
     }
 

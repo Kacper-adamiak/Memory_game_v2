@@ -32,7 +32,7 @@ struct MemoGameModel<CardContent> where CardContent: Equatable{
     }
 
     var indexOfOneAndOnlyFaceUpCard: Int? {
-        mutating get {
+        get {
             return cards.indices.filter{index in cards[index].isFaceUp}.only
         }
         set {

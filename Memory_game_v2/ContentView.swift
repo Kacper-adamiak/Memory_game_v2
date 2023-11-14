@@ -13,17 +13,18 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
+            Text("Memo").font(.title)
+            cards.animation(.default, value: viewModel.cards)
             Button(action: {
                 viewModel.shuffle()}) {
                     Text("Przetasuj")
                         .font(.headline)
                         .padding()
-                        .background(Color.blue)
+                        .background(viewModel.themeColor)
                         .foregroundColor(.white)
                         .cornerRadius(10)
                 }
-            cards.animation(.default, value: viewModel.cards)
-            ThemeButtons
+            ThemeButtons.foregroundColor(viewModel.themeColor)
         }}
     
     var cards : some View {
@@ -43,11 +44,11 @@ struct ContentView: View {
     var ThemeButtons: some View{
         HStack{
             Spacer()
-            ThemeButton(viewModel: viewModel, imageName: "pencil", content: "Motyw 1", themeType: 0)
+            ThemeButton(viewModel: viewModel, imageName: "face.smiling", content: "Motyw 1", themeType: 0)
             Spacer()
-            ThemeButton(viewModel: viewModel, imageName: "pencil", content: "Motyw 2", themeType: 1)
+            ThemeButton(viewModel: viewModel, imageName: "pawprint.circle.fill", content: "Motyw 2", themeType: 1)
             Spacer()
-            ThemeButton(viewModel: viewModel, imageName: "pencil", content: "Motyw 1", themeType: 2)
+            ThemeButton(viewModel: viewModel, imageName: "tennisball.circle.fill", content: "Motyw 3", themeType: 2)
             Spacer()
         }
     }

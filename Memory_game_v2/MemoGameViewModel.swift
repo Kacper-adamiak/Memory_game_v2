@@ -47,6 +47,14 @@ class MemoGameViewModel: ObservableObject {
 
         func changeApplicationTheme(theme: Int) {
             themeType = theme
+            
+            model.setCards(numberPairsOfCard: 8) { index in
+                if MemoGameViewModel.emojis[themeType].indices.contains(index) {
+                    return MemoGameViewModel.emojis[themeType][index]
+                } else {
+                    return "??"
+                }
+            }
         }
     
  

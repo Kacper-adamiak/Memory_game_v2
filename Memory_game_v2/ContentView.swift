@@ -28,7 +28,7 @@ struct ContentView: View {
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 85), spacing:0)]){
                 ForEach(viewModel.cards) { card in
                     ZStack{
-                        CardView(card: card, color: viewModel.themeColor)
+                        CardView(card: card)
                             .aspectRatio(2/3, contentMode: .fit)
                             .padding(4)
                             .onTapGesture {

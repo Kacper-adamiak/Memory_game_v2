@@ -1,29 +1,31 @@
 import SwiftUI
 struct CardView: View {
     
+    @State var isRotating = false
+    
     var card: MemoGameModel<String>.Card
-    var color: Color
     
     var body: some View {
 
         let base = RoundedRectangle(cornerRadius: 12)
         
         base
-            .fill(card.isFaceUp ? .white : color)
             .overlay(
                 Group{
                     if card.isFaceUp {
                         CirclePartShape()
-                            .fill(color)
+                        base.fill(.white)
                         base.strokeBorder(lineWidth: 3)
                         Text(card.content)
                             .font(.system(size: 200))
                             .minimumScaleFactor(0.01)
                             .aspectRatio(1, contentMode: .fit)
-                            .rotationEffect(.degrees(card.isMatched ? 360 : 0))
+                            .rotationEffect(.degrees(isRotating ? 360 : 0))
                             .onAppear{
                                 withAnimation(Animation.linear(duration: 2).repeatForever(autoreverses: false)){
-                                    
+                                    if card.isMatched {
+                                        isRotating.toggle()
+                                    }
                                 }
                             }
                     }

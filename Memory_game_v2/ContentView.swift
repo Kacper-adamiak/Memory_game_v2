@@ -1,44 +1,64 @@
-//
-//  ContentView.swift
-//  Memory_game_v2
-//
-//  Created by student on 16/10/2023.
-//
-
 import SwiftUI
 
 struct ContentView: View {
     
     @ObservedObject var viewModel: MemoGameViewModel
+    @State private var lastScoreChange: (points: Int, cardId: String) = (0, "0")
     
     var body: some View {
         VStack {
             Text("Memo").font(.title)
             cards.animation(.default, value: viewModel.cards)
-            Button(action: {
-                viewModel.shuffle()}) {
-                    Text("Przetasuj")
-                        .font(.headline)
-                        .padding()
-                        .background(viewModel.themeColor)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                }
+            HStack {
+                Text("Wynik: \(viewModel.score)")
+                Button(action: {
+                    viewModel.shuffle()}) {
+                        Text("Przetasuj")
+                            .font(.headline)
+                            .padding()
+                            .background(viewModel.themeColor)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }
+            }
             ThemeButtons.foregroundColor(viewModel.themeColor)
         }}
     
     var cards : some View {
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 85), spacing:0)]){
                 ForEach(viewModel.cards) { card in
-                    CardView(card: card)
-                        .aspectRatio(2/3, contentMode: .fit)
-                        .padding(4)
-                        .onTapGesture {
-                            viewModel.choose(card)
-                        }
+                    ZStack{
+                        CardView(card: card, color: viewModel.themeColor)
+                            .aspectRatio(2/3, contentMode: .fit)
+                            .padding(4)
+                            .onTapGesture {
+                                
+                                let previous = viewModel.score
+                                viewModel.choose(card)
+                                let score = viewModel.score - previous
+                                lastScoreChange = (score, card.id)
+                                
+                            }
+                            .transformIntoCard(isFaceUp: card.isFaceUp)
+                            if card.id == lastScoreChange.cardId && lastScoreChange.points != 0 {
+                                FlyingNumberView(number: lastScoreChange.points)
+                                    .onAppear{
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                                            lastScoreChange = (0, "0")
+                                        }
+                                    }
+                                
+                            }
+                    }
+                            
+                        
                 }
             }.foregroundColor(viewModel.themeColor)
         }
+    
+    func scoreChange(fro cardId: String) -> Int {
+        return cardId == lastScoreChange.cardId ? lastScoreChange.points : 0
+    }
     
     
     var ThemeButtons: some View{

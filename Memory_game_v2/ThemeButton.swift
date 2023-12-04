@@ -1,10 +1,3 @@
-//
-//  ThemeButton.swift
-//  Memory_game_v2
-//
-//  Created by student on 07/11/2023.
-//
-
 import SwiftUI
 
 struct ThemeButton: View {

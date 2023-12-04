@@ -1,10 +1,3 @@
-//
-//  MemoGameViewModel.swift
-//  Memory_game_v2
-//
-//  Created by student on 07/11/2023.
-//
-
 import SwiftUI
 
 class MemoGameViewModel: ObservableObject {
@@ -19,6 +12,9 @@ class MemoGameViewModel: ObservableObject {
         get {
             return [Color.purple, Color.blue, Color.yellow][themeType]
         }
+    }
+    var score: Int {
+        model.score
     }
 
     private static func createMemoGame() -> MemoGameModel<String> {
@@ -47,7 +43,7 @@ class MemoGameViewModel: ObservableObject {
 
         func changeApplicationTheme(theme: Int) {
             themeType = theme
-            
+            model.score = 0
             model.setCards(numberPairsOfCard: 8) { index in
                 if MemoGameViewModel.emojis[themeType].indices.contains(index) {
                     return MemoGameViewModel.emojis[themeType][index]

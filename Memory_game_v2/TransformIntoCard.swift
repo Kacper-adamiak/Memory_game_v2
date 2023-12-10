@@ -12,6 +12,7 @@ struct TransformIntoCard: ViewModifier {
     
     func body(content: Content) -> some View {
         content
+            
             .rotation3DEffect(.degrees(isFaceUp ? 180 : 0),
                               axis: (x: 0.0, y: 1.0, z: 0.0))
             .animation(.linear, value: isFaceUp)
